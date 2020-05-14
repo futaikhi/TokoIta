@@ -10,7 +10,7 @@ class KategoriController extends BaseController
     public function index()
     {
         $model = new PegawaiModel();
-        if ($model->isLogin()) {
+        if ($model->isAdmin()) {
             $model = new KategoriModel();
             $data['kategori'] = $model->getKategori();
             $data['req'] = $this->request->uri->getSegment(2);

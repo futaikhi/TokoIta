@@ -34,13 +34,32 @@
                         <div class="col-md-6">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Printer <?php echo $printer ?></h3>
+                                    <h3 class="card-title">Printer : <?php echo $printer ?></h3>
                                 </div>
                                 <form role="form" action="<?php echo base_url('admin/setting/setPrinter'); ?>" method="post">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="printer">Nama Printer</label>
                                             <input type="text" class="form-control" id="printer" name="printer" placeholder="Printer">
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Nama Toko : <?php echo $namaToko ?></h3>
+                                </div>
+                                <form role="form" action="<?php echo base_url('admin/setting/setToko'); ?>" method="post">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="toko">Nama Toko</label>
+                                            <input type="text" class="form-control" id="toko" name="toko" placeholder="Toko">
                                         </div>
                                     </div>
                                     <div class="card-footer">

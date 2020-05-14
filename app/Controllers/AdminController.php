@@ -10,7 +10,7 @@ class AdminController extends BaseController
     {
 
         $model = new PegawaiModel();
-        if ($model->isLogin()) {
+        if ($model->isAdmin()) {
             $data['req'] = $this->request->uri->getSegment(2);
             return view('admin/admin', $data);
         } else {

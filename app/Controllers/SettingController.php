@@ -15,10 +15,11 @@ class SettingController extends BaseController
     public function index()
     {
         $model = new PegawaiModel();
-        if ($model->isLogin()) {
+        if ($model->isAdmin()) {
             $data['req'] = $this->request->uri->getSegment(2);
             $model = new SettingModel();
             $data['printer'] = $model->getPrinter()['0']['nama'];
+            $data['namaToko'] = $model->getPrinter()['0']['namaToko'];
             return view('admin/setting', $data);
         } else {
             return redirect()->to(base_url());
@@ -31,6 +32,17 @@ class SettingController extends BaseController
         $id = '1';
         $data = array(
             'nama'  => $this->request->getPost('printer')
+        );
+        $model->updatePrinter($data, $id);
+        return redirect()->to(base_url("admin/setting"));
+    }
+
+    public function setToko()
+    {
+        $model = new SettingModel();
+        $id = '1';
+        $data = array(
+            'namaToko'  => $this->request->getPost('toko')
         );
         $model->updatePrinter($data, $id);
         return redirect()->to(base_url("admin/setting"));

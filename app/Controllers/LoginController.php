@@ -16,7 +16,7 @@ class LoginController extends BaseController
     public function index()
     {
         $model = new PegawaiModel();
-        if ($model->isLogin()) {
+        if ($model->isAdmin()) {
             return redirect()->to(base_url("admin/home"));
         } else {
             return view('admin/login');
@@ -40,11 +40,41 @@ class LoginController extends BaseController
                     'idPegawai'  => $lala[0]['idPegawai'],
                     'Password'     => $lala[0]['noTelp'],
                     'nama' => $lala[0]['nama'],
+                    'peran' => $lala[0]['idPeran'],
                     'logged_in' => TRUE
                 ];
 
                 $session->set($newdata);
                 return redirect()->to(base_url("admin/home"));
+            }
+        } catch (\Exception $e) {
+            die($e->get->getMessage());
+        }
+    }
+
+    public function loginPegawai()
+    {
+        $session = \Config\Services::session();
+        try {
+            $name = $this->request->getPost("name");
+            $telp = $this->request->getPost("password");
+            $model = new PegawaiModel();
+            $lala = $model->doLoginPegawai($name, $telp);
+            // $session->set($lala);
+            if ($lala == "false") {
+                $session->setFlashdata('errors', "Password Salah");
+                return redirect()->to(base_url());
+            } else {
+                $newdata = [
+                    'idPegawai'  => $lala[0]['idPegawai'],
+                    'Password'     => $lala[0]['noTelp'],
+                    'nama' => $lala[0]['nama'],
+                    'peran' => $lala[0]['idPeran'],
+                    'logged_in' => TRUE
+                ];
+
+                $session->set($newdata);
+                return redirect()->to(base_url("transaksi"));
             }
         } catch (\Exception $e) {
             die($e->get->getMessage());

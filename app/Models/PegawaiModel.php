@@ -53,10 +53,32 @@ class PegawaiModel extends Model
         }
     }
 
+    public function doLoginPegawai($name, $telp)
+    {
+        $this->where('nama', $name);
+        $this->where('noTelp', $telp);
+        $login = $this->get()->getResultArray();
+        if ($login == NULL) {
+            return "false";
+        } else {
+            return $login;
+        }
+    }
+
     public function isLogin()
     {
         $session = \Config\Services::session();
         if ($session->get('logged_in')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function isAdmin()
+    {
+        $session = \Config\Services::session();
+        if ($session->get('logged_in') && $session->get('peran') == 1) {
             return true;
         } else {
             return false;

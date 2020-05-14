@@ -16,7 +16,7 @@ class PegawaiController extends BaseController
     public function index()
     {
         $model = new PegawaiModel();
-        if ($model->isLogin()) {
+        if ($model->isAdmin()) {
             $data['pegawai'] = $model->getPegawai();
             $data['peran'] = $model->getPeran();
             $data['req'] = $this->request->uri->getSegment(2);

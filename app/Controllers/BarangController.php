@@ -11,7 +11,7 @@ class BarangController extends BaseController
     public function index()
     {
         $model = new PegawaiModel();
-        if ($model->isLogin()) {
+        if ($model->isAdmin()) {
             $model = new KategoriModel();
             $data['kategori'] = $model->getKategori();
             $model = new BarangModel();

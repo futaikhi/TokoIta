@@ -31,7 +31,8 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'LoginController::index');
+$routes->get('/admin', 'LoginController::index');
+$routes->get('/', 'Home::index');
 
 $routes->get('/admin/home', 'AdminController::index');
 
@@ -42,6 +43,7 @@ $routes->post('/admin/kategori/update', 'KategoriController::update');
 
 $routes->get('/admin/setting', 'SettingController::index');
 $routes->post('/admin/setting/setPrinter', 'SettingController::setPrinter');
+$routes->post('/admin/setting/setToko', 'SettingController::setToko');
 
 $routes->get('/admin/barang', 'BarangController::index');
 $routes->post('/admin/barang/insert', 'BarangController::insert');
@@ -54,6 +56,7 @@ $routes->post('/admin/pegawai/delete', 'PegawaiController::delete');
 $routes->post('/admin/pegawai/update', 'PegawaiController::update');
 
 $routes->post('/login', 'LoginController::login');
+$routes->post('/loginPegawai', 'LoginController::loginPegawai');
 $routes->get('/logout', 'LoginController::logout');
 
 $routes->post('/transaksi/print', 'TransaksiController::print');
