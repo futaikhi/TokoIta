@@ -19,6 +19,11 @@ class BarangModel extends Model
         }
     }
 
+    public function getJumlahBarang()
+    {
+        return $this->countAllResults();
+    }
+
     public function saveBarang($data)
     {
         $query = $this->db->table($this->table)->insert($data);

@@ -65,6 +65,11 @@ class PegawaiModel extends Model
         }
     }
 
+    public function getJumlahPegawai()
+    {
+        return $this->countAllResults();
+    }
+
     public function isLogin()
     {
         $session = \Config\Services::session();

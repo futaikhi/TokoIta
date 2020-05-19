@@ -137,16 +137,16 @@ class TransaksiController extends BaseController
                 $printer->text("TRANSKSI\n\n\n");
                 $printer->initialize();
                 $printer->text("--------------------------------\n");
-                $printer->text(buatKolom("Nama", ": " . $session->get('nama'), "",));
-                $printer->text(buatKolom("No Telp", ": " .  $session->get('Password'), "",));
+                $printer->text(buatKolom("Nama", ": " . $session->get('nama'), ""));
+                $printer->text(buatKolom("No Telp", ": " .  $session->get('Password'), ""));
                 $printer->text("--------------------------------\n");
-                $printer->text(buatKolom("Barang", "Jumlah", "Harga",));
+                $printer->text(buatKolom("Barang", "Jumlah", "Harga"));
                 $printer->text("--------------------------------\n");
                 for ($i = 0; $i < count($data); $i++) {
                     $printer->text(buatKolom($data[$i][1], $data[$i][2], $data[$i][3]));
                 }
                 $printer->text("--------------------------------\n");
-                $printer->text(buatKolom("Total", "", $total,));
+                $printer->text(buatKolom("Total", "", $total));
                 $printer->text("\n\n\n");
 
                 $printer->initialize();

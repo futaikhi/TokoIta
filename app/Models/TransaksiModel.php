@@ -23,6 +23,18 @@ class TransaksiModel extends Model
         return $this->get()->getResult();
     }
 
+    public function getNamaBulan()
+    {
+        $this->select('MONTHNAME(tanggal) as bulan');
+        $this->groupBy("bulan");
+        return $this->get()->getResult();
+    }
+
+    public function getJumlahTransaksi()
+    {
+        return $this->countAllResults();
+    }
+
     public function saveTransaksi($data)
     {
         $query = $this->db->table($this->table)->insert($data);
