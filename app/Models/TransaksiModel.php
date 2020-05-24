@@ -27,6 +27,15 @@ class TransaksiModel extends Model
     {
         $this->select('MONTHNAME(tanggal) as bulan');
         $this->groupBy("bulan");
+        $this->orderBy("tanggal");
+        return $this->get()->getResult();
+    }
+
+    public function getTransaksiBulanan()
+    {
+        $this->select('count(MONTHNAME(tanggal)) as jumlahBulanan');
+        $this->groupBy("MONTHNAME(tanggal)");
+        $this->orderBy("tanggal");
         return $this->get()->getResult();
     }
 

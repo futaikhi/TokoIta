@@ -47,7 +47,7 @@
                         </div>
                         <div class="col-md">
                             <!-- small box -->
-                            <div class="small-box bg-info">
+                            <div class="small-box bg-warning">
                                 <div class="inner">
                                     <h3><?php echo $jumlahBarang ?></h3>
 
@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-md">
                             <!-- small box -->
-                            <div class="small-box bg-info">
+                            <div class="small-box bg-primary">
                                 <div class="inner">
                                     <h3><?php echo $jumlahPegawai ?></h3>
 
@@ -79,17 +79,11 @@
                             <div class="card">
                                 <div class="card-header border-0">
                                     <div class="d-flex justify-content-between">
-                                        <h3 class="card-title">Banyaknya Transaksi</h3>
-                                        <a href="javascript:void(0);">View Report</a>
+                                        <h3 class="card-title">Transaksi</h3>
+                                        <a href="javascript:void(0);">Lihat Laporan</a>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="d-flex">
-                                        <p class="d-flex flex-column">
-                                            <span class="text-bold text-lg"><?php echo $jumlahTransaksi ?></span>
-                                            <span>Semua Transaksi</span>
-                                        </p>
-                                    </div>
                                     <!-- /.d-flex -->
 
                                     <div class="position-relative mb-4">
@@ -114,8 +108,11 @@
                     label.push('<?php echo $row->bulan ?>');     
             <?php
             } ?>
-            var data = [<?php echo $jumlahTransaksi ?>];
-            var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var data = [];
+            <?php foreach ($jumlahBulanan as $row) { ?>
+                    data.push('<?php echo $row->jumlahBulanan ?>');     
+            <?php
+            } ?>
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -154,7 +151,7 @@
                             display: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Pengunjung'
+                                labelString: 'Transaksi'
                             }
                         }]
                     }

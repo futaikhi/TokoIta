@@ -21,7 +21,8 @@ class AdminController extends BaseController
             $data['jumlahTransaksi'] = $transaksi->getJumlahTransaksi();
             $data['jumlahPegawai'] = $pegawai->getJumlahPegawai();
             $data['bulan'] = $transaksi->getNamaBulan();
-            // var_dump($transaksi->getNamaBulan()[0]['bulan']);
+            $data['jumlahBulanan'] = $transaksi->getTransaksiBulanan();
+            // var_dump($transaksi->getTransaksiBulanan());
             return view('admin/admin', $data);
         } else {
             return redirect()->to(base_url());
