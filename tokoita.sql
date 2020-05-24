@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2020 at 02:46 PM
+-- Generation Time: May 24, 2020 at 02:56 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -178,7 +178,10 @@ INSERT INTO `transaksi` (`idTransaksi`, `tanggal`, `totalHarga`, `idPegawai`) VA
 (13, '2020-05-12 09:38:47', 25000, 1),
 (14, '2020-05-12 09:39:02', 31000, 1),
 (15, '2020-05-12 09:45:44', 59000, 1),
-(16, '2020-05-12 09:49:09', 25000, 1);
+(16, '2020-05-12 09:49:09', 25000, 1),
+(17, '2020-06-04 05:09:32', 50000, 1),
+(18, '2020-07-09 05:21:52', 50000, 1),
+(19, '2020-07-10 05:22:04', 50000, 1);
 
 --
 -- Indexes for dumped tables
@@ -268,7 +271,7 @@ ALTER TABLE `setting`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `idTransaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idTransaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
